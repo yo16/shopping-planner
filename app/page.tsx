@@ -122,26 +122,6 @@ export default function Home() {
 
         <div className="p-6 pb-8">
           <form onSubmit={handleSubmit} className="space-y-8">
-          {/* パスワード入力欄 */}
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="flex items-center mb-3">
-              <span className="text-lg mr-2">🔒</span>
-              <label htmlFor="password" className="text-sm font-semibold text-gray-700">
-                パスワード
-              </label>
-            </div>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && !isSubmitting && handleSubmit(e)}
-              className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg text-base focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
-              placeholder="パスワードを入力"
-              required
-            />
-          </div>
-
           {/* アイテムリスト */}
           <div className="bg-gray-50 rounded-xl p-4">
             <div className="flex items-center mb-4">
@@ -214,6 +194,26 @@ export default function Home() {
                 追加
               </button>
             </div>
+          </div>
+
+          {/* パスワード入力欄 */}
+          <div className="bg-gray-50 rounded-xl p-4">
+            <div className="flex items-center mb-3">
+              <span className="text-lg mr-2">🔒</span>
+              <label htmlFor="password" className="text-sm font-semibold text-gray-700">
+                パスワード
+              </label>
+            </div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && !isSubmitting && handleSubmit(e)}
+              className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg text-base focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
+              placeholder="パスワードを入力"
+              required
+            />
           </div>
 
           {/* 送信ボタン */}
