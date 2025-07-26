@@ -23,8 +23,10 @@ export default function Home() {
     const ca = document.cookie.split(';')
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i]
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
+      if (c) {
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
+      }
     }
     return null
   }
@@ -238,18 +240,20 @@ export default function Home() {
             </button>
           </div>
 
-          {/* メッセージ表示 */}
+          {/* Toast通知（画面上部固定） */}
           {message && (
-            <div className={`mt-6 p-4 rounded-xl text-center font-medium shadow-md ${
-              message === '送信完了' 
-                ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border-2 border-green-200' 
-                : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border-2 border-red-200'
-            }`}>
-              <div className="flex items-center justify-center">
-                <span className="mr-2">
-                  {message === '送信完了' ? '✅' : '❌'}
-                </span>
-                {message}
+            <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 animate-pulse">
+              <div className={`px-6 py-4 rounded-xl font-medium shadow-lg border-2 ${
+                message === '送信完了' 
+                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border-green-200' 
+                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border-red-200'
+              }`}>
+                <div className="flex items-center">
+                  <span className="mr-2 text-lg">
+                    {message === '送信完了' ? '✅' : '❌'}
+                  </span>
+                  <span className="font-semibold">{message}</span>
+                </div>
               </div>
             </div>
           )}
