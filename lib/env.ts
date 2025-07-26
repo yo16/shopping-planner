@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const envSchema = z.object({
   APP_PASSWORD: z.string().min(1, 'APP_PASSWORD is required'),
+  WEBHOOK_URL: z.string().url('WEBHOOK_URL must be a valid URL'),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 });
 
