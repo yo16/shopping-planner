@@ -112,29 +112,29 @@ export default function Home() {
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen overflow-x-hidden">
-      <div className="w-full max-w-md mx-auto bg-white min-h-screen shadow-xl">
+      <div className="w-full max-w-md mx-auto bg-white min-h-screen shadow-xl flex flex-col">
         {/* ヘッダー */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 w-full">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 w-full flex-shrink-0">
           <h1 className="text-white text-xl font-bold text-center">
             🛒 お買い物プランナー
           </h1>
         </div>
 
-        <div className="p-4 pb-8 w-full">
-          <form onSubmit={handleSubmit} className="space-y-8">
+        <div className="p-3 pb-6 w-full flex-1 flex flex-col">
+          <form onSubmit={handleSubmit} className="flex-1 flex flex-col space-y-4">
           {/* アイテムリスト */}
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="flex items-center mb-4">
+          <div className="bg-gray-50 rounded-xl p-3 flex-1 flex flex-col">
+            <div className="flex items-center mb-2 flex-shrink-0">
               <span className="text-lg mr-2">📝</span>
               <h2 className="text-sm font-semibold text-gray-700">買い物リスト</h2>
               <div className="ml-auto bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
                 {checkedItems.size}個選択
               </div>
             </div>
-            <div className="space-y-2 h-40 overflow-y-auto bg-white rounded-lg p-3 border border-gray-200">
+            <div className="space-y-1 flex-1 overflow-y-auto bg-white rounded-lg p-2 border border-gray-200">
               {/* デフォルトアイテム */}
               {defaultItems.map((item) => (
-                <label key={item} className="flex items-center space-x-3 cursor-pointer p-3 hover:bg-blue-50 rounded-lg transition-colors">
+                <label key={item} className="flex items-center space-x-3 cursor-pointer p-1 hover:bg-blue-50 rounded-lg transition-colors">
                   <input
                     type="checkbox"
                     checked={checkedItems.has(item)}
@@ -148,7 +148,7 @@ export default function Home() {
               
               {/* 追加アイテム */}
               {addedItems.map((item) => (
-                <label key={item} className="flex items-center space-x-3 cursor-pointer p-3 hover:bg-green-50 rounded-lg transition-colors border-l-4 border-green-400">
+                <label key={item} className="flex items-center space-x-3 cursor-pointer p-1 hover:bg-green-50 rounded-lg transition-colors border-l-4 border-green-400">
                   <input
                     type="checkbox"
                     checked={checkedItems.has(item)}
@@ -163,8 +163,8 @@ export default function Home() {
           </div>
 
           {/* 新規アイテム追加 */}
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="flex items-center mb-3">
+          <div className="bg-gray-50 rounded-xl p-3 flex-shrink-0">
+            <div className="flex items-center mb-2">
               <span className="text-lg mr-2">➕</span>
               <label htmlFor="newItem" className="text-sm font-semibold text-gray-700">
                 アイテムを追加
@@ -197,8 +197,8 @@ export default function Home() {
           </div>
 
           {/* パスワード入力欄 */}
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="flex items-center mb-3">
+          <div className="bg-gray-50 rounded-xl p-3 flex-shrink-0">
+            <div className="flex items-center mb-2">
               <span className="text-lg mr-2">🔒</span>
               <label htmlFor="password" className="text-sm font-semibold text-gray-700">
                 パスワード
@@ -217,7 +217,7 @@ export default function Home() {
           </div>
 
           {/* 送信ボタン */}
-          <div className="pt-8 mt-4 border-t border-gray-200">
+          <div className="pt-4 mt-2 border-t border-gray-200 flex-shrink-0">
             <button
               type="submit"
               disabled={isSubmitting}
