@@ -111,16 +111,16 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
-      <div className="max-w-md mx-auto bg-white min-h-screen shadow-xl">
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen overflow-x-hidden">
+      <div className="w-full max-w-md mx-auto bg-white min-h-screen shadow-xl">
         {/* ヘッダー */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 w-full">
           <h1 className="text-white text-xl font-bold text-center">
             🛒 お買い物プランナー
           </h1>
         </div>
 
-        <div className="p-6 pb-8">
+        <div className="p-4 pb-8 w-full">
           <form onSubmit={handleSubmit} className="space-y-8">
           {/* アイテムリスト */}
           <div className="bg-gray-50 rounded-xl p-4">
